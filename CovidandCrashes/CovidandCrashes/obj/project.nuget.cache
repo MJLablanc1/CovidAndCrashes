@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7doV9f4GVRHVZDbpcKr64hgrGB9jSohg9v+obJi9TwHNRffEyC4zKvQAVyGUCksFU0D0oXwjg7yEOdg+iEoEuw==",
+  "dgSpecHash": "R05zznLq0FTGe4oAXFhnKwQaSmDngrmp9vvfUs7OSIJXFdRM79wy3/VFQDh6ez6LHp46iDOpxR/FYzkSw7dp4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\madmi\\Desktop\\ISIT322\\DataProject\\CovidandCrashes\\CovidandCrashes\\CovidandCrashes.csproj",
+  "projectFilePath": "C:\\Users\\madmi\\Desktop\\ISIT322\\_DataProject\\CovidAndCrashes\\CovidandCrashes\\CovidandCrashes\\CovidandCrashes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\madmi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\madmi\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

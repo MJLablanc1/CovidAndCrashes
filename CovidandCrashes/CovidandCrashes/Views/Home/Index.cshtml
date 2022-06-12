@@ -1,8 +1,35 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<h3>Covid and Car Crashes</h3>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="my-form-group">
+    <label for="date">Choose first date:</label>
+    <select id="fDaydd" name="firstDay"></select>
+
+    <label for="date">Choose first date:</label>
+    <select id="fMonthdd" name="firstDay"></select>
+</div>
+
+<div class="my-form-group">
+    <label for="date">Choose last date:</label>
+    <select id="lDaydd" name="lastDay"></select>
+
+    <label for="date">Choose last date:</label>
+    <select id="lMonthdd" name="lastMonth"></select>
+</div>
+
+<div class="my-form-group">
+    <label for="state">Choose state:</label>
+    <select id="statedd" name="State"></select>
+</div>
+
+<div class="my-form-group">
+    <label for="crashType">Choose crash type:</label>
+    <select id="crashTypedd" name="CrashType"></select>
+</div>
+
+<div class="my-form-group">
+    <label for="intersection">Where was the crash:</label>
+    <select id="intersectiondd" name="Intersection"></select>
 </div>

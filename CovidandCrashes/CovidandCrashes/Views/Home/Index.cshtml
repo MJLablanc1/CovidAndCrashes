@@ -1,22 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
 <h3>Covid and Car Crashes</h3>
 
 <div class="my-form-group">
     <label for="date">Choose first date:</label>
-    <select id="fDaydd" name="firstDay"></select>
+    <input type="date" id="date1" value="2020-01-01" min="2020-01-01" max="2020-12-31">
 
-    <label for="date">Choose first date:</label>
-    <select id="fMonthdd" name="firstDay"></select>
-</div>
-
-<div class="my-form-group">
-    <label for="date">Choose last date:</label>
-    <select id="lDaydd" name="lastDay"></select>
-
-    <label for="date">Choose last date:</label>
-    <select id="lMonthdd" name="lastMonth"></select>
+   <label for="date">Choose last date:</label>
+    <input type="date" id="date2" value="2020-12-31" min="2020-01-01" max="2020-12-31">
 </div>
 
 <div class="my-form-group">
@@ -33,3 +26,7 @@
     <label for="intersection">Where was the crash:</label>
     <select id="intersectiondd" name="Intersection"></select>
 </div>
+
+<button onclick="GenerateTable()">Generate Table</button>
+
+<div id="output"></div>

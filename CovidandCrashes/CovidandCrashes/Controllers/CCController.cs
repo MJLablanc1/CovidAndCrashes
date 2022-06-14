@@ -119,49 +119,49 @@ namespace CovidandCrashes.Controllers
             }).ToListAsync();
         }
 
-        // GET: api/<CCController>/Comparison
-        [Route("Comp/{date1:int}/{date2:int}/{stateId:int}/{crashId:int}")]
-        [HttpGet]
-        public async List<ComparisonTableEntry> GetCompData(int date1, int date2, int stateId, int crashID)
-        {
-            List<ComparisonTableEntry> output = new List<ComparisonTableEntry>();
+        //// GET: api/<CCController>/Comparison
+        //[Route("Comp/{date1:int}/{date2:int}/{stateId:int}/{crashId:int}")]
+        //[HttpGet]
+        //public async List<ComparisonTableEntry> GetCompData(int date1, int date2, int stateId, int crashID)
+        //{
+        //    List<ComparisonTableEntry> output = new List<ComparisonTableEntry>();
 
-            var context = new CCDBContext();
-            List<CrashData> crashData = new List<CrashData>();
-            crashData = await context.Crashtables.Select(x => new CrashData
-            {
-                CrashId = x.CrashId,
-                DateId = x.DateId,
-                StateId = x.StateId,
-                CollisionId = x.CollisionId,
-                IntersectionId = x.IntersectionId,
-                Deaths = x.Deaths
+        //    var context = new CCDBContext();
+        //    List<CrashData> crashData = new List<CrashData>();
+        //    crashData = await context.Crashtables.Select(x => new CrashData
+        //    {
+        //        CrashId = x.CrashId,
+        //        DateId = x.DateId,
+        //        StateId = x.StateId,
+        //        CollisionId = x.CollisionId,
+        //        IntersectionId = x.IntersectionId,
+        //        Deaths = x.Deaths
 
-            }).ToListAsync();
+        //    }).ToListAsync();
 
-            List<CovidData> covidData = new List<CovidData>();
-            covidData = await context.Covids.Select(x => new CovidData
-            {
-                CovidId = x.CovidId,
-                StateId = x.StateId,
-                Hospitalizations = x.Hospitalization,
-                Deaths = x.Deaths,
-                DateId = x.DateId,
+        //    List<CovidData> covidData = new List<CovidData>();
+        //    covidData = await context.Covids.Select(x => new CovidData
+        //    {
+        //        CovidId = x.CovidId,
+        //        StateId = x.StateId,
+        //        Hospitalizations = x.Hospitalization,
+        //        Deaths = x.Deaths,
+        //        DateId = x.DateId,
 
-            }).ToListAsync();
+        //    }).ToListAsync();
 
-            foreach (var covid in covidData)
-            {
-                if (covid.DateId >= date1 && covid.DateId <= date2)
-                {
-                    if (covid.StateId == stateId)
-                    {
+        //    foreach (var covid in covidData)
+        //    {
+        //        if (covid.DateId >= date1 && covid.DateId <= date2)
+        //        {
+        //            if (covid.StateId == stateId)
+        //            {
 
-                    }
-                }
-            }
+        //            }
+        //        }
+        //    }
 
-        }
+        //}
 
 
 

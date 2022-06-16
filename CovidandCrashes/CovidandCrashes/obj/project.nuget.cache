@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NE40giap5CXNfO8E9t6o2aQju8fKCwXX9wR6Nu7bqtTA66KbOr5TwTBe8g0msG8AV6cxlNyFh0KveJA6GcKpDQ==",
+  "dgSpecHash": "OMVy7/5amf72oONupNOULumGLW0ptBmF1dEEbincPskX5LNX8toEQ/dopH2gJDH4dWa85iVYzWM7JP5Cmrr28g==",
   "success": true,
   "projectFilePath": "C:\\Users\\ianbe\\Documents\\git-repos\\CovidAndCrashes\\CovidandCrashes\\CovidandCrashes\\CovidandCrashes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ianbe\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\ianbe\\.nuget\\packages\\jquery\\3.6.0\\jquery.3.6.0.nupkg.sha512",
+    "C:\\Users\\ianbe\\.nuget\\packages\\jquery.ui.combined\\1.13.1\\jquery.ui.combined.1.13.1.nupkg.sha512",
     "C:\\Users\\ianbe\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ianbe\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\ianbe\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

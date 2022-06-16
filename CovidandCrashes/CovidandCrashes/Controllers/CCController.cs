@@ -107,6 +107,7 @@ namespace CovidandCrashes.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DateDropdownEntry>>> GetDateData()
         {
+            System.Diagnostics.Debug.WriteLine("Hello");
             var context = new CCDBContext();
             return await context.DateTables.Select(x => new DateDropdownEntry
             {
@@ -119,49 +120,62 @@ namespace CovidandCrashes.Controllers
             }).ToListAsync();
         }
 
-        //// GET: api/<CCController>/Comparison
-        //[Route("Comp/{date1:int}/{date2:int}/{stateId:int}/{crashId:int}")]
-        //[HttpGet]
-        //public async List<ComparisonTableEntry> GetCompData(int date1, int date2, int stateId, int crashID)
-        //{
-        //    List<ComparisonTableEntry> output = new List<ComparisonTableEntry>();
+        // GET: api/<CCController>/Comparison
+        [Route("Comp/{date1:int}/{date2:int}/{stateId:int}/{collisionId:int}/{intersectionId:int}")]
+        [HttpGet]
+        public List<ComparisonTableEntry> GetCompData(int date1, int date2, int? stateId, int? collisionId, int? intersectionId)
+        {
+            System.Diagnostics.Debug.WriteLine("Hello");
+            //http://localhost:5104/Comp/1/1/34169/3/4
 
-        //    var context = new CCDBContext();
-        //    List<CrashData> crashData = new List<CrashData>();
-        //    crashData = await context.Crashtables.Select(x => new CrashData
-        //    {
-        //        CrashId = x.CrashId,
-        //        DateId = x.DateId,
-        //        StateId = x.StateId,
-        //        CollisionId = x.CollisionId,
-        //        IntersectionId = x.IntersectionId,
-        //        Deaths = x.Deaths
+            stateId = -1;
 
-        //    }).ToListAsync();
+            var context = new CCDBContext();
 
-        //    List<CovidData> covidData = new List<CovidData>();
-        //    covidData = await context.Covids.Select(x => new CovidData
-        //    {
-        //        CovidId = x.CovidId,
-        //        StateId = x.StateId,
-        //        Hospitalizations = x.Hospitalization,
-        //        Deaths = x.Deaths,
-        //        DateId = x.DateId,
+            // Get crash deaths from CrashData WHERE stateId, collisionId, and intersectionId match (If the were given, else return all from that column)
+            var crashData = from crash in context.Crashtables
+                            where ( stateId != -1 ? crash.StateId == stateId : true ) 
+                                && (collisionId != -1 ? crash.CollisionId == collisionId : true)
+                                && (intersectionId != -1 ? crash.IntersectionId == intersectionId : true)
+                            select new { crash.Deaths, crash.Date.Day, crash.Date.Month, crash.Date.Year, crash.State.State1, crash.Collision.Collision1, crash.Intersection.Intersection1 };
 
-        //    }).ToListAsync();
+            var covidData = from covid in context.Covids
+                            where (stateId != -1 ? covid.StateId == stateId : true)
+                            select new { covid.Deaths, covid.Date.Day, covid.Date.Month, covid.Date.Year, covid.State.State1 };
 
-        //    foreach (var covid in covidData)
-        //    {
-        //        if (covid.DateId >= date1 && covid.DateId <= date2)
-        //        {
-        //            if (covid.StateId == stateId)
-        //            {
+            var joinedData = covidData.Join(crashData,
+                                                covidDate => covidDate.Day.ToString() + covidDate.Month.ToString() + covidDate.Year.ToString(),
+                                                crashDate => crashDate.Day.ToString() + crashDate.Month.ToString() + crashDate.Year.ToString(),
+                                                (covidDate, crashDate) => new ComparisonTableEntry
+                                                {
+                                                    stateName = covidDate.State1,
+                                                    crashType = crashDate.Collision1,
+                                                    intersectionType = crashDate.Intersection1,
+                                                    covidDeaths = covidDate.Deaths,
+                                                    crashDeaths = crashDate.Deaths,
+                                                    date = new DateTime(covidDate.Year, covidDate.Month, covidDate.Day)
+                                                });
 
-        //            }
-        //        }
-        //    }
+            List<ComparisonTableEntry> output = new List<ComparisonTableEntry>();
 
-        //}
+            try
+            {
+                foreach (var item in joinedData)
+                {
+                    if ( (date1 != -1 ? item.date >= new DateTime(2020, date1, 1) : true) && (date2 != -1 ? item.date <= new DateTime(2020, date2, 1) : true))
+                    {
+                        output.Add(item);
+                    }
+                }
+
+            }
+            catch { }
+
+            output.Sort((a, b) => a.date.CompareTo(b.date));
+
+            return output;
+
+        }
 
 
 

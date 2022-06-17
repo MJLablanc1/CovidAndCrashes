@@ -94,6 +94,7 @@ namespace CovidandCrashes.Controllers
         public async Task<ActionResult<IEnumerable<StateDropdownEntry>>> GetStateData()
         {
             var context = new CCDBContext();
+
             return await context.States.Select(x => new StateDropdownEntry
             {
                 stateID = x.StateId,

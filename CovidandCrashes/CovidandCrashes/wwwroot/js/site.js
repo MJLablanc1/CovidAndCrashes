@@ -9,9 +9,6 @@
             const Dropdown = document.getElementById(dropdownID);
             Dropdown.innerHTML = output;
         })
-        .fail(function (jqXHR, textStatus, err) {
-            outputDiv.innerHTML = output; 'Error: ' + err;
-        });
 }
 
 function PopulateCrashDropdown(dropdownID) {
@@ -25,9 +22,6 @@ function PopulateCrashDropdown(dropdownID) {
             const Dropdown = document.getElementById(dropdownID);
             Dropdown.innerHTML = output;
         })
-        .fail(function (jqXHR, textStatus, err) {
-            outputDiv.innerHTML = output; 'Error: ' + err;
-        });
 }
 
 function PopulateIntersectionDropdown(dropdownID) {
@@ -41,27 +35,20 @@ function PopulateIntersectionDropdown(dropdownID) {
             const Dropdown = document.getElementById(dropdownID);
             Dropdown.innerHTML = output;
         })
-        .fail(function (jqXHR, textStatus, err) {
-            outputDiv.innerHTML = output; 'Error: ' + err;
-        });
 }
 
 function GenerateTable() {
     $.getJSON(`/Comp/${date1.value}/${date2.value}/${statedd.value}/${crashTypedd.value}/${intersectiondd.value}`)
-    console.log(date1.value, date2.value, statedd.value, crashTypedd.value, intersectiondd.value)
         .done(function (data) {
+            console.log(`/Comp/${date1.value}/${date2.value}/${statedd.value}/${crashTypedd.value}/${intersectiondd.value}`);
             let output = "<table><tr><th>Date</th><th>State</th><th>Collision type</th><th>Intersection</th><th>Covid deaths</th><th>Crash Deaths</th></tr>";
             for (let entry in data) {
-                output += `<tr><td>${data.Date}</td><td>${data.stateName}</td><td>${data.CrashType}</td><td>${data.intersectionType}</td><td>${data.covidDeaths}</td><td>${data.crashDeaths}</td></tr>`;
+                output += `<tr><td>${data[entry].date}</td><td>${data[entry].stateName}</td><td>${data[entry].crashType}</td><td>${data[entry].intersectionType}</td><td>${data[entry].covidDeaths}</td><td>${data[entry].crashDeaths}</td></tr>`;
             }
             output += '</table>'
             const outputDiv = document.getElementById("output-div");
             outputDiv.innerHTML = output;
         })
-        .fail(function (jqXHR, textStatus, err) {
-            const outputDiv = document.getElementById("output-div");
-            outputDiv.innerHTML = output; 'Error: ' + err;
-        });
 }
 
 $(document).ready(function () {

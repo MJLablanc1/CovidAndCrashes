@@ -121,14 +121,17 @@ namespace CovidandCrashes.Controllers
         }
 
         // GET: api/<CCController>/Comparison
-        [Route("Comp/{date1:int}/{date2:int}/{stateId:int}/{collisionId:int}/{intersectionId:int}")]
+        [Route("Comp/{date1}/{date2}/{stateId:int}/{collisionId:int}/{intersectionId:int}")]
         [HttpGet]
-        public List<ComparisonTableEntry> GetCompData(int date1, int date2, int? stateId, int? collisionId, int? intersectionId)
+        public List<ComparisonTableEntry> GetCompData(string date1, string date2, int? stateId, int? collisionId, int? intersectionId)
         {
             System.Diagnostics.Debug.WriteLine("Hello");
             //http://localhost:5104/Comp/1/1/34169/3/4
 
-            stateId = -1;
+            string[] firstDate = date1.Split('-');
+            DateTime firstDateTime = new DateTime(int.Parse(firstDate[0]), int.Parse(firstDate[1]), int.Parse(firstDate[2]));
+            string[] secondDate = date2.Split('-');
+            DateTime secondDateTime = new DateTime(int.Parse(secondDate[0]), int.Parse(secondDate[1]), int.Parse(secondDate[2]));
 
             var context = new CCDBContext();
 
@@ -162,7 +165,7 @@ namespace CovidandCrashes.Controllers
             {
                 foreach (var item in joinedData)
                 {
-                    if ( (date1 != -1 ? item.date >= new DateTime(2020, date1, 1) : true) && (date2 != -1 ? item.date <= new DateTime(2020, date2, 1) : true))
+                    if ( item.date >= firstDateTime && item.date <= secondDateTime)
                     {
                         output.Add(item);
                     }

@@ -1,0 +1,55 @@
+1,Curb
+2,Wall
+3,Ditch
+4,Fence
+5,Ground
+6,Boulder
+7,Culvert
+8,Building
+9,Shrubbery
+10,Mail Box
+11,Embankment
+12,Pedestrian
+13,Snow Bank
+14,Pedalcyclist
+15,Live Animal
+16,Fire Hydrant
+17,Fire/Explosion
+18,Cable Barrier
+19,Guardrail End
+20,Guardrail Face
+21,Railway Vehicle
+22,Rollover/Overturn
+23,Other Fixed Object
+24,Other Non-Collision
+25,Reported as Unknown
+26,Parked Motor Vehicle
+27,Traffic Sign Support
+28,Tree (Standing Only)
+29,Unknown Fixed Object
+30,Other Traffic Barrier
+31,Road Vehicle on Rails
+32,Working Motor Vehicle
+33,Bridge Pier or Support
+34,Traffic Signal Support
+35,Concrete Traffic Barrier
+36,Fell/Jumped from Vehicle
+37,Other Object (not fixed)
+38,Thrown or Falling Object
+39,Unknown Object Not Fixed
+40,Bridge Overhead Structure
+41,Motor Vehicle In-Transport
+42,Utility Pole/Light Support
+43,Post - Pole or Other Supports
+44,Bridge Rail (Includes parapet)
+45,Immersion or Partial Immersion
+46,Impact Attenuator/Crash Cushion
+47,Injured In Vehicle (Non-Collision)
+48,Jackknife (harmful to this vehicle)
+49,Non-Motorist on Personal Conveyance
+50,Harmful Event - Details Not Reported
+51,Ridden Animal or Animal Drawn Conveyance
+52,Cargo/Equipment Loss - Shift - or Damage [harmful]
+53,Object That Had Fallen From Motor Vehicle In-Transport
+54,Pavement Surface Irregularity (Ruts - Potholes - Grates - etc.)
+55,Motor Vehicle In-Transport Strikes or is Struck by Cargo - Persons or Objects Set-in-Motion from/by Another Motor Vehicle In Transport

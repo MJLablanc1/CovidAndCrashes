@@ -1,0 +1,6 @@
+Car Crash Data
+https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/2020/National/
+FARS2020NationalCSV.zip
+
+Covid Data
+https://covidtracking.com/data/download

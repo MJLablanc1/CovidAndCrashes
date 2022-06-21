@@ -15,4 +15,39 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: mintcream;
+}
+
+.container {
+    border-style: solid;
+    border-color: tan;
+}
+
+input {
+    margin: 5px;
+    margin-right: 10px;
+}
+
+select {
+    margin: 5px;
+    margin-right: 10px;
+}
+
+th {
+    width: 220px;
+}
+td {
+    margin: 5px;
+}
+
+.blank_row {
+    height: 10px !important;
+}
+.blue {
+    background-color:cadetblue;
+
+}
+
+.green {
+    background-color:mediumseagreen;
 }

@@ -175,6 +175,11 @@ namespace CovidandCrashes.Controllers
             catch { }
 
             output.Sort((a, b) => a.date.CompareTo(b.date));
+            foreach (var item in output)
+            {
+                item.dateShort = item.date.ToShortDateString();
+            };
+            //output.date = date1.ToString()
 
             return output;
 

@@ -12,6 +12,7 @@
         public int covidDeaths { get; set; }
         public int crashDeaths { get; set; }
         public DateTime date { get; set; }
+        public string? dateShort { get; set; }
 
     }
 }
